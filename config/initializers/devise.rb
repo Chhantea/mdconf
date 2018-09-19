@@ -10,6 +10,15 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '78c407a66087431037eae49ff705568b05727d8d4c76e7a0f933e7788a1fa576a5078680acf60785843c6321282e8a56ac0ce3c33e092ea601cb3d238a56ee0d'
   
+  # ==> OmniAuth
+    # Add a new OmniAuth provider. Check the wiki for more information on setting
+    # up on your models and hooks.
+
+    config.omniauth :facebook,'894884334034332','8e64428915ed460939bea0d868ce2bf5', scope: 'public_profile,email'
+    # config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user,public_repo'
+    # config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_APP_SECRET'], scope: 'userinfo.email,userinfo.profile'
+    # config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
