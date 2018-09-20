@@ -42,8 +42,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded"
-              target="_blank">
+            <a href="/users/sign_in" class="nav-link border border-light rounded"
+              target="">
               <i class="fa fa-user mr-2"></i> Login
             </a>
           </li>
@@ -52,6 +52,11 @@
               <i class="fa fa-shopping-cart mr-2"></i>
             </a>
           </li>
+                      <li>
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete if current_user%>
+              <%= current_user.email if current_user%>
+            </li>
+
         </ul>
 
       </div>
