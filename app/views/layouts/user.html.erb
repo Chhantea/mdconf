@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.7/css/mdb.min.css" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <% javascript_pack_tag 'hello_vue' %> 
   </head>
 
   <body>
-    <%= render partial:  'layouts/navbar'%>
-    <div class="">
+    
+    <div class="container">
     <%= yield %>
   </div>
     <%= render partial:  'layouts/footer'%>

@@ -1,0 +1,83 @@
+<br><br><br><br><br>
+<%= javascript_pack_tag 'eg' %> 
+<div class="container">
+	<h2><I>Click Event</I></h2>
+	<br/>
+	<div id="databinding">
+		<button v-on:click = "displaynumbers" class="btn bt-sm">Click me</button>
+		<button @click = "displaynumbers" class="btn bt-sm">Click can be used in two ways</button>
+		<h4>Add number 100 + 200 : {{total}}</h4>
+	</div>
+	<hr/>
+	<h2><i>Example-1</i></h2>
+	<br/>
+	<div id="eg-1">
+		<div v-bind:style ="styleobj" v-on:mouseover = "changebgcolour" v-on:mouseout="originalcolour"></div>
+	</div>
+	<hr/>
+	<h2><i>Event Modifiers</i></h2>
+	<br>
+	<div id="databinding1">
+		<button v-on:click.once = 'buttonclickedonce' v-bind:style="stylethis">Click once</button>
+		Output: {{clicknum}}
+		<br/><br/>
+		<button v-on:click = "buttonclicked" v-bind:style="stylethis" >Click me</button>
+		Output: {{clicknum1}}
+	</div>
+	<hr/>
+	<br/>
+	<h2><i>.prevent Syntax</i></h2>
+	<div id="databinding2">
+		<a href="http://www.google.com" v-on:click="clickme" target="_blank" v-bind:style="stylelink"> Click me</a><br><br>
+		<a href="http://www.google.com" v-on:click.prevent="clickme" target="_blank" v-bind:style="stylelink"> Click me prevent</a>
+	</div>
+	<hr/>
+	<br/>
+	<h2><i>Event - Key Modifiers</i></h2>
+	<div id="databinding3">
+		<input type="text" v-on:keyup.enter = "showinputvalue" v-bind:style="styleon3" placeholder="Enter your name">
+		<h3>{{name}}</h3>
+	</div>
+	<hr/>
+	<br/>
+	<h2><i>Custom Events</i></h2>
+	<div id="databinding4">
+		<div id="counter-event-example">
+			<p style="font-size: 25px;">Language displayed : <b>{{languageclicked}} </p>
+		    <button-counter
+            v-for = "(item, index) in languages"
+            v-bind:item = "item"
+            v-bind:index = "index"
+            v-on:showlanguage = "languagedisp"></button-counter>		
+		</div>
+	</div>
+	<hr/>
+	<h2><i>Conditional Rendering</i></h2>
+	<h3>v-if</h3>
+	<br/>
+	<div id="databinding5">
+		<button v-on:click='showdata' v-bind:style='style5'> Click ME</button>
+		<span style="font-size: 25px;"><b>{{show}}</b></span>
+		<h1 v-if="show">This is h1 tag</h1>
+		<!-- <h2 v-else>This is h2 tag</h2>  hei hi else hman dan https://www.tutorialspoint.com/vuejs/vuejs_rendering.htm-->
+		<div v-show = "show">
+            <b>V-Show:</b>
+            <img src = "/assets/flower.jpg" width = "100" height = "100" />
+         </div>
+	</div>
+	<hr/>
+	<br>
+	<h2><i>List Rendering</i></h2>
+	<div id="databinding6">
+		<input type="text" v-on:keyup.enter = "showinputvalue" v-bind:style="style6" placeholder="Enter fruits name" />
+		<h1 v-if="items.length>0">Display fruits name</h1>
+		<ul>
+			<li v-for="a in items">{{a}}	
+			</li>
+		</ul>
+		if we want index
+		<ul>
+            <li v-for = "(a, index) in items">{{index}}--{{a}}</li>
+         </ul>
+	</div>
+</div>

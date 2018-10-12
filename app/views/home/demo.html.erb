@@ -1,0 +1,132 @@
+<br><br><br>
+<%= javascript_pack_tag 'demo' %> 
+<div id = "vue_det" class="container">
+         <h1>Firstname : {{firstname}}</h1>
+         <h1>Lastname : {{lastname}}</h1>
+         <h1>{{mydetails()}}</h1>
+         <div v-html="htmlcontent"></div>
+         <img v-bind:src = "imgsrc" width = "300" height = "250" />
+         <div id = "component_test">
+         <testcomponent></testcomponent>
+	      </div>
+	      
+
+</div>
+<div class="container">
+	<div id = "component_test1">
+	         <testcomponent></testcomponent>
+	     </div>
+	<div id="databinding">
+	     	<component v-bind:is ="view"></component>
+	 </div>
+	<div id="computed_props" class="md-form">
+	     	First Name:  <input type="text" v-model = "firstname"/><br><br>
+	     	Last name:  <input type="text" v-model="lastname"/><br><br>
+	     	<h1>My name is {{firstname}} {{lastname}}</h1>
+	     	<h1>Using computed method: {{getfullname}} </h1>
+	</div>
+	<hr/>
+	<br>
+	<h2><i>VueJS - Computed Properties</i></h2>
+	<br>
+	<div id="computed_props1">
+		<h1 style="background-color:gray;">Random number of random property: {{getrandomno}}</h1>
+		<h1>Random no from method: {{getrandomno1()}}</h1>
+		<h1>Random no from method: {{getrandomno1()}}</h1>
+		<h1 style="background-color: gray;">Random No from computed property: {{getrandomno}}</h1>
+		<h1 style="background-color: gray;">Random No from computed property: {{getrandomno}}</h1>
+		<h1 style="background-color: gray;">Random No from computed property: {{getrandomno}}</h1>
+		<h1>Random no from method: {{ getrandomno1() }} </h1>
+		<h1>Random no from method: {{ getrandomno1() }} </h1>
+	</div>
+	<hr>
+	<h2><i>Get/Set in Computed Properties</i></h2>
+	<br>
+	<div id="computed_props2" class="md-form">
+		<input type="text" v-model = "fullname"/>
+		<h1> {{firstName}} </h1>
+		<h1> {{lastName}} </h1>
+	</div>
+	<hr>
+	<h2><i>VueJS - Watch Property</i></h2>
+	<br>
+	<div id="computed_props3" class="md-form">
+		kilometers: <input type="text" v-model = "kilometers"/>
+		Meters: <input type="text" v-model = "meters"/>
+	</div>
+	<hr>
+	<h2><i>VueJS - Binding</i> </h2>
+	<br>
+	<dir id="databinding1">
+       {{title}}<br/>
+       <a href="hreflink" target="_blank">clickme</a><br/>
+       <a href="{{hreflink}}" target="_blank">click me</a><br/>
+       <a v-bind:href="hreflink" target="_blank">click mee</a><br/>
+	</dir>
+	<hr/>
+	<h2><i>Binding HTML Classes</i></h2>
+	<br/>
+	<style type="text/css">
+		.active{
+			background: red;
+		}
+	</style>
+	<div id="classbinding">
+		<div v-bind:class = "{active:isactive}"><b>{{title}}</b></div>
+	</div>
+	<hr/>
+	<h4><i>Example-2</i></h4>
+	<br/>
+		
+			
+		<div id="classbinding1">
+			<div v-bind:class = "[isActive ? infoclass : '', haserror ? errorclass : '']">{{title}}</div>
+			more details on <a href="https://www.tutorialspoint.com/vuejs/vuejs_binding.htm">here</a>
+	</div>	
+	<hr/>
+	<h2><i>Form Input Bindings</i></h2>
+	<div id="databinding2">
+		<h3>Text Book</h3>
+		<input v-model="name" placeholder="Enter Name"/>
+		<h3>Name enter is : {{name}} </h3>
+		<hr/>
+		<h3>Text Area</h3>
+		<textarea v-model= "textmessage" placeholder="Add details"></textarea>
+		<h1><p>{{textmessage}}</p></h1>
+		<hr/>
+		<input type="checkbox" id="checkbox" v-model="checked">{{checked}}
+	</div>
+	<hr/>
+	<h2><i>Radio button</i></h2>
+	<br>
+	<div id="databinding3">
+		<h3>Radio</h3>
+		<input type="radio" id="black" value="black" v-model="picked">Black
+		<input type="radio" id="white" value="white" v-model="picked">White
+		<h3>Radio element clicked: {{picked}} </h3>
+		<hr/>
+		<h3>Select</h3>
+		<select v-model="languages">
+			<option disabled value="">Please select one</option>
+			<option>Java</option>
+            <option>Javascript</option>
+            <option>Php</option>
+            <option>C</option>
+            <option>C++</option>
+		</select>
+		<h3>Languages select is:{{languages}} </h3>
+		<hr/>
+	</div>
+	<hr/>
+	<h2><i>Modifiers</i></h2>
+	<br/>
+	<div id="databinding4">
+		<span style="font-size:25px;">Enter Age:</span> <input v-model="age" type="number">
+		<br/>
+		<span style="font-size:25px;">Enter Message</span> <input v-model.lazy = "msg">
+		<h3>Display message : {{msg}} </h3>
+		<br/>
+		<span style="font-size:25px;">Enter Message</span><input v-model.trim = "message">
+		<h3>Display message : {{message}} </h3>
+	</div>
+</div>
