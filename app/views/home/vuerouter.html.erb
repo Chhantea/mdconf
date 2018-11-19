@@ -1,0 +1,121 @@
+<br><br><br><br><br>
+
+<%= javascript_pack_tag 'vuerouter' %> 
+<div id="app">
+  <h1>Vue-Paginate v3.4</h1>
+  <paginate name="items" :list="items" class="paginate-list">
+    <li v-for="item in paginated('items')">
+      {{ item }}
+    </li>
+  </paginate>
+  <paginate-links for="items" :show-step-links="true"></paginate-links>
+  <paginate-links for="items" :limit="2" :show-step-links="true"></paginate-links>
+  <paginate-links for="items" :simple="{
+        next: 'Next »',
+        prev: '« Back'
+      }"></paginate-links>
+</div>
+<style type="text/css">
+	#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.paginate-list {
+  width: 159px;
+  margin: 0 auto;
+  text-align: left;
+  li {
+    display: block;
+    &:before {
+      content: '⚬ ';
+      font-weight: bold;
+      color: slategray;
+    }
+  }
+}
+
+.paginate-links.items {
+  user-select: none;
+  a {
+    cursor: pointer;
+  }
+  li.active a {
+    font-weight: bold;
+  }
+  li.next:before {
+    content: ' | ';
+    margin-right: 13px;
+    color: #ddd;
+  }
+  li.disabled a {
+    color: #ccc;
+    cursor: no-drop;
+  }
+}
+
+a {
+  color: #42b983;
+}
+
+</style>
+<hr/>
+<br>
+<div class="container">
+	 <div id = "apps">
+         <h1>Routing Example</h1>
+         <p>
+            <router-link v-bind:to = "{path:'/route1', query: { name: 'Tery' }}"   replace>Router Link 1</router-link>
+            <router-link v-bind:to = "{ path: '/route1'}" append>Router Link 1</router-link>
+            <router-link to = "/route2">Router Link 2</router-link>
+
+         </p>
+         <br>
+         <p>
+   			<router-link v-bind:to = "{ path: '/route1'}" tag = "span">Router Link 1</router-link>
+   			<router-link v-bind:to = "{ path: '/route2'}" tag = "span">Router Link 2</router-link>
+		</p>
+
+		<p>
+		   <router-link v-bind:to = "{ path: '/route1'}" active-class = "_active">Router Link 1</router-link>
+		   <router-link v-bind:to = "{ path: '/route2'}" tag = "span">Router Link 2</router-link>
+		</p>
+		<p>
+		   <router-link v-bind:to = "{ path: '/route1'}" exact-active-class = "_active">Router Link 1</router-link>
+		   <router-link v-bind:to = "{ path: '/route2'}" tag = "span">Router Link 2</router-link>
+		</p>
+		<p>
+		<router-link v-bind:to = "{ path: '/route1'}" event = "mouseover">Router Link 1</router-link>
+		</p>
+         <!-- route outlet -->
+         <!-- component matched by the route will render here -->
+         <router-view></router-view>
+      </div>
+	
+</div>
+
+<style>
+			   ._active{
+			      background-color : red;
+			   }
+			</style>

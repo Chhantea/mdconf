@@ -1,26 +1,79 @@
-<h2>Log in</h2>
 
+<br>
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="Absolute-Center.is-Responsive">
+<div class="card">
+
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Sign in</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <!-- Form -->
+
+      <!-- Email -->
+      <div class="md-form">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",id: "materialLoginFormEmail",class: "form-control" %>
+        <label for="materialLoginFormEmail">E-mail</label>
+      </div>
+
+      <!-- Password -->
+      <div class="md-form">
+        <%= f.password_field :password, autocomplete: "current-password",id: "materialLoginFormPassword",class: "form-control" %>
+        <label for="materialLoginFormPassword">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          <% if devise_mapping.rememberable? -%>
+          <div class="form-check">
+             <%= f.check_box :remember_me,class:"form-check-input", id:"materialLoginFormRemember" %>
+            <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+          </div>
+          <% end -%>
+        </div>
+        <div>
+        
+          <!-- Forgot password -->
+          <a href="">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- Sign in button -->
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+      <!-- Register -->
+      <p>Not a member?
+         <%= link_to "Register", new_registration_path(resource_name) %>
+      </p>
+
+      <!-- Social login -->
+      <p>or sign in with:</p>
+      <a href="/users/auth/facebook"  class="btn btn-sm btn-outline-info">
+        <i class="fa fa-facebook"></i>
+      </a>
+       <a href="/users/auth/facebook"  class="btn btn-sm btn-outline-info">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <!-- <a type="button" class="btn-floating btn-tw btn-sm">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a type="button" class="btn-floating btn-li btn-sm">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      <a type="button" class="btn-floating btn-git btn-sm">
+        <i class="fa fa-github"></i>
+      </a> -->
+    <%end%>
+    <!-- Form -->
+<!--     <%= render "devise/shared/links" %> -->
+
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
